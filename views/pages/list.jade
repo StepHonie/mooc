@@ -10,7 +10,7 @@ block content
             th 导演
             th 国家
             th 上映年份
-            //th 录入时间
+            th 录入时间
             th 查看
             th 更新
             th 删除
@@ -21,10 +21,12 @@ block content
               td #{item.doctor}
               td #{item.country}
               td #{item.year}
-              //td #{moment(item.meta.createdAt).format('MM/DD/YYYY')}
+              td #{moment(item.meta.updateAt).format('MM/DD/YYYY')}
               td: a(target="_blank",href="../movie/#{item._id}") 查看
               td: a(target="_blank",href="../admin/update/#{item._id}") 修改
               td 
                 button.btn.btn-danger.del(type="button",data-id="#{item._id}") 删除
+                //data-id：html固定格式，在html标签中添加任何item(动态数据)中的内容，都最好写成data-**;
+                //在js代码中获取的时候用e.target.data('id')来获取；
             
             
